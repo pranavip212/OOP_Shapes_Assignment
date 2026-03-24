@@ -1,11 +1,7 @@
 from sphere import Sphere
 from gabriels_horn import GabrielsHorn
 
-
-
-
 s = Sphere("red", 5, 1, 2, 3)
-
 
 print(s.get_type())         # Sphere
 print(s.get_color())        # red
@@ -17,8 +13,6 @@ s.draw()
 
 s.set_radius(10)
 print(s.get_radius())       # 10
-
-
 
 
 g = GabrielsHorn("gold", 1000)
