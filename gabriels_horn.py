@@ -14,10 +14,14 @@ class GabrielsHorn(Shape3D):
    def get_b(self):
        return self._b
 
-
    def set_b(self, b):
-       self._b = b
-
+       try:
+           if b <= 0:
+               print("b must be positive")
+               return
+           self._b = b
+       except ValueError:
+           print(f"Invalid value for b. Try again.")
 
    def volume(self):
        return math.pi * (1 - (1 / self._b))

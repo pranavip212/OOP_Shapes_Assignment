@@ -13,10 +13,15 @@ class Sphere(Shape3D):
    def get_radius(self):
        return self._radius
 
-
    def set_radius(self, sphere_radius):
        self._radius = sphere_radius
-
+       try:
+           if sphere_radius <= 0:
+               print("Radius must be positive")
+               return
+           self._radius = sphere_radius
+       except ValueError:
+           print(f"Invalid value for radius. Try again.")
 
    def volume(self):
        return (4 / 3) * math.pi * self._radius ** 3
