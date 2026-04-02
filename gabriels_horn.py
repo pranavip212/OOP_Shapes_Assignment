@@ -16,8 +16,8 @@ class GabrielsHorn(Shape3D):
 
    def set_b(self, b):
        try:
-           if b <= 0:
-               print("b must be positive")
+           if b <= 1:
+               print("b must be positive and greater than 1")
                return
            self._b = b
        except ValueError:
