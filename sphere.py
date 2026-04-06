@@ -7,21 +7,22 @@ class Sphere(Shape3D):
        super().__init__("Sphere", color, x, y, z)
        #type is hardcoded here but only because every instance of the class will be a sphere
        #so its redundant to keep asking the user to type it when they create a sphere
+       if radius <= 0:
+           raise ValueError("Invalid radius. Try again.")
        self._radius = radius
-
+# the radius error handling is here too incase someone just calls the constructor rather than the setter
+   # and uses an invalid radius there
 
    def get_radius(self):
        return self._radius
 
+
    def set_radius(self, sphere_radius):
+       if sphere_radius <= 0:
+           raise ValueError("Invalid value for radius. Try again.")
        self._radius = sphere_radius
-       try:
-           if sphere_radius <= 0:
-               print("Radius must be positive")
-               return
-           self._radius = sphere_radius
-       except ValueError:
-           print(f"Invalid value for radius. Try again.")
+
+
 
    def volume(self):
        return (4 / 3) * math.pi * self._radius ** 3
@@ -39,4 +40,17 @@ class Sphere(Shape3D):
    *             *
     *           *
       *       *
-        ***** """)
+        ***** 
+        Sphere: 
+           Radius = {self._radius}
+           Color: {self.get_color()}
+           Volume = {round(self.volume(), 4)}
+           Surface Area = {round(self.surface_area(), 4)}
+           Location: ({self.get_location().get_x()}, {self.get_location().get_y()}, {self.get_location().get_z()})
+              
+              
+              
+              
+              
+              
+             """ )
